@@ -21,17 +21,29 @@
 
   #elem h1 {
     text-transform: capitalize;
+    font-size: 51px;
+    -webkit-text-stroke: 2px #006CB8;
+    color: #FFCC00;
+    margin: 0;
   }
 
   #elem img {
-    background-color: aqua;
+    background-color: #f2f2f2;
     width: 150px;
     height: 150px;
+    /* border-radius: 15px; */
+    clip-path: polygon(49% 0, 100% 0, 100% 54%, 51% 100%, 0 100%, 0 44%);
   }
 
   #elem h2 {
     font-family: Arial, Helvetica, sans-serif;
     color: orange;
+    text-transform: capitalize;
+  }
+
+  #id-boton {
+    padding: 5px 30px;
+
   }
 
   form input {
@@ -55,63 +67,15 @@
 
   <form>
     <input type="number" id="id-pokemon" placeholder="ID POKEMON" required>
-    <input type="button" id="id-boton" value="Busca">
+    <input type="button" id="id-boton" value="Buscar">
+    <input type="button" id="id-botonNext" value="Next">
   </form>
 
-
+  <!--  <footer>
+    <small><a href="">@amaurysoto</a></small>
+  </footer> -->
 
   <script>
-
-    /* var boton = document.getElementById("id-boton");
-    boton.addEventListener("click", buscarPokemon) */
-
-
-    /*    function buscarPokemon(pokeUser){
-    
-        var pokeUser = document.getElementById("id-pokemon").value; 
-        var boton = document.getElementById("id-boton"); 
-        boton.addEventListener("click", buscarPokemon)
-    
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokeUser} `)
-        .then((response)=> response.json())
-        .then((poke)=>{
-          console.log(poke.name)
-        })
-        .catch((error)=>{
-          console.log("salió mal :(")
-        })
-              }
-          buscarPokemon(); */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*  */
-
-
-
-
 
     console.log("Hola")
     function buscarPokemon(pokeUser) {
@@ -137,7 +101,11 @@
           console.log(error);
         });
     }
-    buscarPokemon(25);
+    buscarPokemon();
+
+
+
+
 
 
 
