@@ -69,6 +69,7 @@
     <input type="number" id="id-pokemon" placeholder="ID POKEMON" required>
     <input type="button" id="id-boton" value="Buscar">
     <input type="button" id="id-botonNext" value="Next">
+    <input type="search" name="" id="" placeholder="Busca tu Pokémon">
   </form>
 
   <!--  <footer>
@@ -79,6 +80,7 @@
 
 
     function buscarPokemon(pokeUser) {
+
       var pokeUser = document.getElementById("id-pokemon").value;
       var boton = document.getElementById("id-boton");
       boton.addEventListener("click", buscarPokemon);
@@ -105,14 +107,11 @@
     buscarPokemon();
 
 
-
-
-
-
-
     function nextPokemon(pokeUserN) {
       var pokeUser = document.getElementById("id-pokemon").value;
       var pokeUserN = parseInt(pokeUser) + 1
+      //
+      document.getElementById("id-pokemon").value = pokeUserN
       var botonNext = document.querySelector("#id-botonNext");
       botonNext.addEventListener("click", nextPokemon)
 
