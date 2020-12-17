@@ -7,6 +7,10 @@
   <title>Poke !!</title>
 </head>
 <style>
+  body {
+    background-color: #e95c5c;
+  }
+
   h1 {
 
     font-family: Arial;
@@ -14,6 +18,7 @@
     text-align: center;
 
   }
+
 
   .logo-pokemon {
     display: flex;
@@ -43,7 +48,8 @@
 
   #elem h2 {
     font-family: Arial, Helvetica, sans-serif;
-    color: orange;
+    -webkit-text-stroke: 1px #006CB8;
+    color: #FFCC00;
     text-transform: capitalize;
   }
 
@@ -54,6 +60,21 @@
 
   form input {
     display: block;
+  }
+
+  .dir-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+
+  }
+
+  .dir-buttons button {
+    margin: 0 10px;
+    border: 2px solid #006CB8;
+    border-radius: 5px;
+    padding: 5px;
+
   }
 
   input {
@@ -74,7 +95,10 @@
   <form>
     <input type="number" id="id-pokemon" placeholder="ID POKEMON" required>
     <input type="button" id="id-boton" value="Buscar">
-    <input type="button" id="id-botonNext" value="Next">
+    <div class="dir-buttons">
+      <button type="button" id="id-botonPrev" value="Prev">Prev</button>
+      <button type="button" id="id-botonNext" value="Next">Next</button>
+    </div>
     <input type="search" name="" id="" placeholder="Busca tu Pokémon">
   </form>
 
@@ -116,7 +140,7 @@
     function nextPokemon(pokeUserN) {
       var pokeUser = document.getElementById("id-pokemon").value;
       var pokeUserN = parseInt(pokeUser) + 1
-      //
+
       document.getElementById("id-pokemon").value = pokeUserN
       var botonNext = document.querySelector("#id-botonNext");
       botonNext.addEventListener("click", nextPokemon)
@@ -141,6 +165,35 @@
 
     }
     nextPokemon();
+
+    function prevPokemon(pokeUserN) {
+      var pokeUser = document.getElementById("id-pokemon").value;
+      var pokeUserV = parseInt(pokeUser) - 1
+
+      document.getElementById("id-pokemon").value = pokeUserV
+      var botonprev = document.querySelector("#id-botonPrev");
+      botonprev.addEventListener("click", prevPokemon)
+
+      const url = `https://pokeapi.co/api/v2/pokemon/${pokeUserV} `;
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+
+          let elemento = document.getElementById("elem");
+          elemento.innerHTML = `<h1>${data.name}</h1>
+                                <img src="${data.sprites.front_default}">
+                                <img src="${data.sprites.back_default}">
+                                <h2> Attack: ${data.abilities[1].ability.name} </h2>      `
+
+
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+
+    }
+    prevPokemon();
 
 
 
