@@ -91,7 +91,7 @@
   <img class="logo-pokemon" src="./images/Pokemon-Logo.png" width="100%" alt="">
 
   <div id="elem"></div>
-
+  <!-- <img id="image" src="" alt=""> PRUEBA ENVIANDO CON WINDOWN.SETATTRIBUTTE-->
   <form>
     <input type="number" id="id-pokemon" placeholder="ID POKEMON" required>
     <input type="button" id="id-boton" value="Buscar">
@@ -108,6 +108,23 @@
 
   <script>
 
+    /*   async function getPokemon (pokeUser)  {
+          let API = `https://pokeapi.co/api/v2/pokemon/${pokeUser}`
+          const response = await fetch(API)
+          const data = await response.json()
+          console.log(data)
+       return data 
+        }
+     
+    async function doNow(){
+      const poke = await getPokemon(1)
+      console.log(poke)
+    }
+    doNow()
+    
+    const $inputSearch =  document.getElementById("id-pokemon") 
+    const $btnSearch = document.getElementById("id-boton")
+    $btnSearch.addEventListener("click", getPokemon($inputSearch)) */
 
     function buscarPokemon(pokeUser) {
 
@@ -122,9 +139,9 @@
 
           let elemento = document.getElementById("elem");
           elemento.innerHTML = `<h1>${data.name}</h1>
-                                <img src="${data.sprites.front_default}">
-                                <img src="${data.sprites.back_default}">
-                                <h2> Attack: ${data.abilities[1].ability.name} </h2>      `
+                                  <img src="${data.sprites.front_default}">
+                                  <img src="${data.sprites.back_default}">
+                                  <h2> Attack: ${data.abilities[1].ability.name} </h2>      `
 
 
         })
@@ -152,9 +169,9 @@
 
           let elemento = document.getElementById("elem");
           elemento.innerHTML = `<h1>${data.name}</h1>
-                                <img src="${data.sprites.front_default}">
-                                <img src="${data.sprites.back_default}">
-                                <h2> Attack: ${data.abilities[1].ability.name} </h2>      `
+                                  <img src="${data.sprites.front_default}">
+                                  <img src="${data.sprites.back_default}">
+                                  <h2> Attack: ${data.abilities[1].ability.name} </h2>      `
 
 
         })
@@ -181,9 +198,9 @@
 
           let elemento = document.getElementById("elem");
           elemento.innerHTML = `<h1>${data.name}</h1>
-                                <img src="${data.sprites.front_default}">
-                                <img src="${data.sprites.back_default}">
-                                <h2> Attack: ${data.abilities[1].ability.name} </h2>      `
+                                  <img src="${data.sprites.front_default}">
+                                  <img src="${data.sprites.back_default}">
+                                  <h2> Attack: ${data.abilities[1].ability.name} </h2>      `
 
 
         })
@@ -194,7 +211,6 @@
 
     }
     prevPokemon();
-
 
 
 
